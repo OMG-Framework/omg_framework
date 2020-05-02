@@ -4,54 +4,63 @@
 	background-color: green;
 }*/
 
-#money{
-	font-family: 'Bebas Neue', cursive;
-	position:absolute;
-	right:1em;
-	top:1em;
-	font-size:2em;
-	color: #ffffff;
+#money {
+    font-family: 'Bebas Neue', cursive;
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    font-size: 2em;
+    color: #ffffff;
 }
 
-#bankbalance{
-	font-family: 'Bebas Neue', cursive;
-	position:absolute;
-	right:1em;
-	top:2em;
-	font-size:2em;
-	color: #00c3ff;
+#bankbalance {
+    font-family: 'Bebas Neue', cursive;
+    position: absolute;
+    right: 1em;
+    top: 2em;
+    font-size: 2em;
+    color: #00c3ff;
 }
 
-#dirtymoney{
-	font-family: 'Bebas Neue', cursive;
-	position:absolute;
-	right:1em;
-	top:3em;
-	font-size:2em;
-	color: #b90000;
+#dirtymoney {
+    font-family: 'Bebas Neue', cursive;
+    position: absolute;
+    right: 1em;
+    top: 3em;
+    font-size: 2em;
+    color: #b90000;
 }
 
-#rmvMoney{
-	display:none;
-	font-family: 'Bebas Neue', cursive;
-	position:absolute;
-	right:1em;
-	top:4em;
-	font-size:2em;
-	color:#B9121B;
+#job {
+    font-family: 'Bebas Neue', cursive;
+    position: absolute;
+    right: 1em;
+    top: 4em;
+    font-size: 2em;
+    color: #ffffff;
 }
 
-#addMoney{
-	display:none;
-	font-family: 'Bebas Neue', cursive;
-	position:absolute;
-	right:1em;
-	top:4em;
-	font-size:2em;
-	color: #07ca00;
+#rmvMoney {
+    display: none;
+    font-family: 'Bebas Neue', cursive;
+    position: absolute;
+    right: 1em;
+    top: 4em;
+    font-size: 2em;
+    color: #B9121B;
+}
+
+#addMoney {
+    display: none;
+    font-family: 'Bebas Neue', cursive;
+    position: absolute;
+    right: 1em;
+    top: 4em;
+    font-size: 2em;
+    color: #07ca00;
 }
 
 #icon {
-	height: 35px;
-	width: auto;
+    height: 35px;
+    width: auto;
 }
