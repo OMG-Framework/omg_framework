@@ -131,7 +131,7 @@ function _player_remove_bank_money(tokenToCheck, id, rmv)
 end
 
 RegisterNetEvent("OMG:RemoveBankMoney")
-AddEventHandler("OMG:AddBankMoney", function(tokenToCheck, rmv)
+AddEventHandler("OMG:RemoveBankMoney", function(tokenToCheck, rmv)
     _player_remove_bank_money(tokenToCheck, source, rmv)
 end)
 

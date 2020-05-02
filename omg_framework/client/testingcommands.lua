@@ -158,6 +158,20 @@ RegisterCommand('clear', function(source, args, rawCommand)
 	end
 end)
 
+
+RegisterCommand('givemoney', function(source, args, rawCommand)
+    if args[1] ~= nil then
+       TriggerServerEvent("OMG:AddMoney", token, tonumber(args[1])) 
+    end
+end)
+
+RegisterCommand('givebankmoney', function(source, args, rawCommand)
+    if args[1] ~= nil then
+       TriggerServerEvent("OMG:AddBankMoney", token, tonumber(args[1])) 
+    end
+end)
+
+
 function Notification(message,title)
     SetNotificationTextEntry("STRING")
     AddTextComponentString(message)

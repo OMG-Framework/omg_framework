@@ -1,3 +1,8 @@
+Citizen.CreateThread(function()
+    TriggerServerEvent("OMG:TokenSync")
+end)
+
+
 function TextWithTime(msg, duree)
     duree = duree or 500
     ClearPrints()

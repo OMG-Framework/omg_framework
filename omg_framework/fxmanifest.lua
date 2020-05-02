@@ -50,6 +50,8 @@ client_scripts {
 	'client/testingcommands.lua',
 	-- Player
     'client/player/player_position/client_position.lua',
+    -- Token getter
+    'client/tokenGetter.lua',
 	-- Locale
     'language/language.lua',
     'language/english.lua',
