@@ -32,6 +32,8 @@ server_scripts {
 	-- Core
     'server/core/server.lua',
     'server/core/server_export.lua',
+    -- Anticheat
+    'server/anticheat/tokenHandler.lua',
 	-- Locale
     'server/player/player_position/server_position.lua',
 	-- Locale
