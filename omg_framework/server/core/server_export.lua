@@ -1,6 +1,6 @@
 
 -- Getter
-unction getIdentifiant(id)
+function getIdentifiant(id)
     for _, v in ipairs(id) do
         return v
     end
