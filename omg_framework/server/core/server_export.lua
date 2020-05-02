@@ -1,4 +1,6 @@
-function getIdentifiant(id)
+
+-- Getter
+unction getIdentifiant(id)
     for _, v in ipairs(id) do
         return v
     end
@@ -53,6 +55,8 @@ function creation_utilisateur(id)
     playerInfoMoney[player] = { ["money"] = config.player_money, ["player_bank_balance"] = config.player_bank_balance, ["dirtymoney"] = config.player_dirty_money }
 end
 
+
+-- Setter 
 function _player_remove_money(id, rmv)
     local player = _player_get_identifier(id)
     playerInfoMoney[player].player_money = tonumber(playerInfoMoney[player].player_money - rmv)
@@ -68,7 +72,6 @@ end
 
 
 
--- Setter 
 function _player_add_money(tokenToCheck, id, add)
     if CheckToken(tokenToCheck, id) then
         local player = _player_get_identifier(id)
@@ -83,6 +86,11 @@ function _player_add_money(tokenToCheck, id, add)
         end
     end
 end
+
+RegisterNetEvent("OMG:AddMoney")
+AddEventHandler("OMG:AddMoney", function(tokenToCheck, add)
+    _player_add_money(tokenToCheck, source, add)
+end)
 
 function _player_add_bank_money(tokenToCheck, id, add)
     if CheckToken(tokenToCheck, id) then
@@ -99,6 +107,11 @@ function _player_add_bank_money(tokenToCheck, id, add)
     end
 end
 
+RegisterNetEvent("OMG:AddBankMoney")
+AddEventHandler("OMG:AddBankMoney", function(tokenToCheck, add)
+    _player_add_bank_money(tokenToCheck, source, add)
+end)
+
 function _player_remove_bank_money(tokenToCheck, id, rmv)
     if CheckToken(tokenToCheck, id) then
         local player = _player_get_identifier(id)
@@ -113,6 +126,11 @@ function _player_remove_bank_money(tokenToCheck, id, rmv)
         end
     end
 end
+
+RegisterNetEvent("OMG:RemoveBankMoney")
+AddEventHandler("OMG:AddBankMoney", function(tokenToCheck, rmv)
+    _player_remove_bank_money(tokenToCheck, source, rmv)
+end)
 
 function _player_remove_dirty_money(tokenToCheck, id, add)
     if CheckToken(tokenToCheck, id) then
@@ -129,6 +147,11 @@ function _player_remove_dirty_money(tokenToCheck, id, add)
     end
 end
 
+RegisterNetEvent("OMG:RemoveDirtyMoney")
+AddEventHandler("OMG:RemoveDirtyMoney", function(tokenToCheck, rmv)
+    _player_remove_dirty_money(tokenToCheck, source, rmv)
+end)
+
 function _player_set_dirty_money(tokenToCheck, id, nb)
     if CheckToken(tokenToCheck, id) then
         local player = _player_get_identifier(id)
@@ -144,6 +167,11 @@ function _player_set_dirty_money(tokenToCheck, id, nb)
     end
 end
 
+RegisterNetEvent("OMG:SetDirtyMoney")
+AddEventHandler("OMG:SetDirtyMoney", function(tokenToCheck, set)
+    _player_set_dirty_money(tokenToCheck, source, set)
+end)
+
 function _player_remove_money_for_bank(tokenToCheck, id, rmv)
     if CheckToken(tokenToCheck, id) then
         local player = _player_get_identifier(id)
@@ -157,6 +185,11 @@ function _player_remove_money_for_bank(tokenToCheck, id, rmv)
     end
 end
 
+RegisterNetEvent("OMG:MoveMoneyToBank")
+AddEventHandler("OMG:MoveMoneyToBank", function(tokenToCheck, rmv)
+    _player_remove_money_for_bank(tokenToCheck, source, rmv)
+end)
+
 function _player_remove_bank_for_money(tokenToCheck, id, rmv)
     if CheckToken(tokenToCheck, id) then
         local player = _player_get_identifier(id)
@@ -169,6 +202,11 @@ function _player_remove_bank_for_money(tokenToCheck, id, rmv)
         TriggerClientEvent('OMG:removeBankForMoney', id, tonumber(rmv))
     end
 end
+
+RegisterNetEvent("OMG:MoveMoneyFromBankToPlayer")
+AddEventHandler("OMG:MoveMoneyFromBankToPlayer", function(tokenToCheck, rmv)
+    _player_remove_bank_for_money(tokenToCheck, source, rmv)
+end)
 
 function save_player_position(LastPosX, LastPosY, LastPosZ, LastPosH)
     TriggerEvent('OMG:save_position', LastPosX, LastPosY, LastPosZ, LastPosH)
