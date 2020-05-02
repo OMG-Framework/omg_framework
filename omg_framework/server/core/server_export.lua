@@ -70,7 +70,10 @@ function _player_remove_money(id, rmv)
     end
 end
 
-
+RegisterNetEvent("OMG:RemoveMoney")
+AddEventHandler("OMG:RemoveMoney", function(tokenToCheck, rmv)
+    _player_remove_money(tokenToCheck, source, rmv)
+end)
 
 function _player_add_money(tokenToCheck, id, add)
     if CheckToken(tokenToCheck, id) then
