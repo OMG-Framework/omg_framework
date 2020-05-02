@@ -69,8 +69,8 @@ end
 
 
 -- Setter 
-function _player_add_money(token, id, add)
-    if CheckToken(token, id) then
+function _player_add_money(tokenToCheck, id, add)
+    if CheckToken(tokenToCheck, id) then
         local player = _player_get_identifier(id)
         playerInfoMoney[player].player_money = tonumber(playerInfoMoney[player].player_money + add)
         MySQL.Async.execute("UPDATE player_account SET player_money = player_money + @add WHERE player_identifier = @identifier", {
@@ -84,8 +84,8 @@ function _player_add_money(token, id, add)
     end
 end
 
-function _player_add_bank_money(token, id, add)
-    if CheckToken(token, id) then
+function _player_add_bank_money(tokenToCheck, id, add)
+    if CheckToken(tokenToCheck, id) then
         local player = _player_get_identifier(id)
         playerInfoMoney[player].player_bank_balance = tonumber(playerInfoMoney[player].player_bank_balance + add)
         MySQL.Async.execute("UPDATE player_account SET player_bank_balance = player_bank_balance + @add WHERE player_identifier = @identifier", {
@@ -99,8 +99,8 @@ function _player_add_bank_money(token, id, add)
     end
 end
 
-function _player_remove_bank_money(token, id, rmv)
-    if CheckToken(token, id) then
+function _player_remove_bank_money(tokenToCheck, id, rmv)
+    if CheckToken(tokenToCheck, id) then
         local player = _player_get_identifier(id)
         playerInfoMoney[player].player_bank_balance = tonumber(playerInfoMoney[player].player_bank_balance - rmv)
         MySQL.Async.execute("UPDATE player_account SET player_bank_balance = player_bank_balance - @rmv WHERE player_identifier = @identifier", {
@@ -114,8 +114,8 @@ function _player_remove_bank_money(token, id, rmv)
     end
 end
 
-function _player_remove_dirty_money(token, id, add)
-    if CheckToken(token, id) then
+function _player_remove_dirty_money(tokenToCheck, id, add)
+    if CheckToken(tokenToCheck, id) then
         local player = _player_get_identifier(id)
         playerInfoMoney[player].player_dirty_money = tonumber(playerInfoMoney[player].player_dirty_money + add)
         MySQL.Async.execute("UPDATE player_account SET player_dirty_money = player_dirty_money - @add WHERE player_identifier = @identifier", {
@@ -129,8 +129,8 @@ function _player_remove_dirty_money(token, id, add)
     end
 end
 
-function _player_set_dirty_money(token, id, nb)
-    if CheckToken(token, id) then
+function _player_set_dirty_money(tokenToCheck, id, nb)
+    if CheckToken(tokenToCheck, id) then
         local player = _player_get_identifier(id)
         playerInfoMoney[player].player_dirty_money = tonumber(nb)
         MySQL.Async.execute("UPDATE player_account SET player_dirty_money = @nb WHERE player_identifier = @identifier", {
@@ -144,8 +144,8 @@ function _player_set_dirty_money(token, id, nb)
     end
 end
 
-function _player_remove_money_for_bank(token, id, rmv)
-    if CheckToken(token, id) then
+function _player_remove_money_for_bank(tokenToCheck, id, rmv)
+    if CheckToken(tokenToCheck, id) then
         local player = _player_get_identifier(id)
         playerInfoMoney[player].player_money = tonumber(playerInfoMoney[player].player_money - rmv)
         playerInfoMoney[player].player_bank_balance = tonumber(playerInfoMoney[player].player_bank_balance + rmv)
@@ -157,8 +157,8 @@ function _player_remove_money_for_bank(token, id, rmv)
     end
 end
 
-function _player_remove_bank_for_money(token, id, rmv)
-    if CheckToken(token, id) then
+function _player_remove_bank_for_money(tokenToCheck, id, rmv)
+    if CheckToken(tokenToCheck, id) then
         local player = _player_get_identifier(id)
         playerInfoMoney[player].player_money = tonumber(playerInfoMoney[player].player_money + rmv)
         playerInfoMoney[player].player_bank_balance = tonumber(playerInfoMoney[player].player_bank_balance - rmv)
