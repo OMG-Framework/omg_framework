@@ -35,7 +35,7 @@ AddEventHandler('OMG:saveUser', function(data)
 end)
 
 -- TODO: Save players every Citizen.Wait(10 * 60 * 1000)
-Citizen.CreateThread(function()
+--[[Citizen.CreateThread(function()
     local players = GetNumPlayerIndices()
 	while true do
 		Citizen.Wait(10 * 60 * 1000)
@@ -46,4 +46,4 @@ Citizen.CreateThread(function()
         end
         printf("Saving "..players.." players")
 	end
-end)
+end)]]--
